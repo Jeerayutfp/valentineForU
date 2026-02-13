@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ดอกไม้ให้คุณ</title>
+
+<style>
+@font-face {
+    font-family: 'Loma';
+    src: url('fonts/Loma.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'DejaVu Sans';
+    src: url('fonts/DejaVuSans.ttf') format('truetype');
+    font-weight: normal;
+}
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:radial-gradient(circle at center,#111018,#000);
+    overflow:hidden;
+    color:#f8e8f4;
+    font-family: 'DejaVu Sans', 'Loma', sans-serif;
+}
+
+/* floating effect */
+.bouquet{
+    animation:float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{ transform:translateY(0px);}
+    50%{ transform:translateY(-10px);}
+}
+
+/* stem + leaf */
+.stem{ stroke:#2f6b45; stroke-width:5;}
+.leaf{ fill:#3c8c63; }
+
+/* petals */
+.petal{
+    fill:#fff0f6;
+    filter: drop-shadow(0 0 18px rgba(255,182,193,.6));
+}
+.petal-inner{ fill:#ffd6ea; }
+.center{ fill:#ff99cc; }
+
+/* typing text */
+.message{
+    position:absolute;
+    bottom:40px;
+    width:100%;
+    text-align:center;
+    font-size:20px;
+    letter-spacing:1px;
+    border-right:2px solid #fff;
+    white-space:nowrap;
+    overflow:hidden;
+    width:0;
+    animation:typing 5s steps(50,end) forwards,
+              blink .8s infinite;
+    animation-delay:3s;
+}
+
+@keyframes typing{
+    to{ width:520px;}
+}
+
+@keyframes blink{
+    50%{ border-color:transparent;}
+}
+</style>
+</head>
+<body>
+
+<svg class="bouquet" width="380" height="500" viewBox="0 0 380 500">
+
+    <!-- stems -->
+    <line class="stem" x1="190" y1="450" x2="190" y2="260"/>
+    <line class="stem" x1="160" y1="450" x2="140" y2="280"/>
+    <line class="stem" x1="220" y1="450" x2="240" y2="280"/>
+
+    <!-- leaves -->
+    <ellipse class="leaf" cx="165" cy="340" rx="35" ry="14" transform="rotate(-30 165 340)"/>
+    <ellipse class="leaf" cx="215" cy="340" rx="35" ry="14" transform="rotate(30 215 340)"/>
+
+    <!-- center lily -->
+    <g transform="translate(190,230)">
+        <animateTransform attributeName="transform"
+            type="scale"
+            from="0"
+            to="1"
+            begin="0.5s"
+            dur="1.5s"
+            additive="sum"
+            fill="freeze"/>
+        <ellipse class="petal" rx="35" ry="85"/>
+        <ellipse class="petal-inner" rx="28" ry="70"/>
+        <ellipse class="petal" rx="35" ry="85" transform="rotate(60)"/>
+        <ellipse class="petal" rx="35" ry="85" transform="rotate(-60)"/>
+        <ellipse class="petal" rx="35" ry="85" transform="rotate(120)"/>
+        <ellipse class="petal" rx="35" ry="85" transform="rotate(-120)"/>
+        <circle class="center" r="14"/>
+    </g>
+
+    <!-- left lily -->
+    <g transform="translate(140,260)">
+        <animateTransform attributeName="transform"
+            type="scale"
+            from="0"
+            to="0.8"
+            begin="1s"
+            dur="1.5s"
+            additive="sum"
+            fill="freeze"/>
+        <ellipse class="petal" rx="35" ry="85"/>
+        <ellipse class="petal-inner" rx="28" ry="70"/>
+        <ellipse class="petal" rx="35" ry="85" transform="rotate(60)"/>
+        <ellipse class="petal" rx="35" ry="85" transform="rotate(-60)"/>
+        <circle class="center" r="12"/>
+    </g>
+
+    <!-- right lily -->
+    <g transform="translate(240,260)">
+        <animateTransform attributeName="transform"
+            type="scale"
+            from="0"
+            to="0.8"
+            begin="1.5s"
+            dur="1.5s"
+            additive="sum"
+            fill="freeze"/>
+        <ellipse class="petal" rx="35" ry="85"/>
+        <ellipse class="petal-inner" rx="28" ry="70"/>
+        <ellipse class="petal" rx="35" ry="85" transform="rotate(60)"/>
+        <ellipse class="petal" rx="35" ry="85" transform="rotate(-60)"/>
+        <circle class="center" r="12"/>
+    </g>
+
+</svg>
+
+<div class="message">
+ในวันที่ใจอ่อนแอ ขอให้ดอกไม้ดอกนี้มอบแสงสว่างให้กับคุณ.
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="piano.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("bgMusic");
+music.volume = 0;
+
+document.addEventListener("click", function () {
+    music.play();
+    let fade = setInterval(() => {
+        if (music.volume < 0.4) {
+            music.volume += 0.02;
+        } else {
+            clearInterval(fade);
+        }
+    }, 200);
+}, { once: true });
+</script>
+</body>
+</html>

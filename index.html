@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>for Aoae❤️</title>
+
+<style>
+@font-face {
+    font-family: 'Loma';
+    src: url('fonts/Loma.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Loma';
+    src: url('fonts/Loma-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'DejaVu Sans';
+    src: url('fonts/DejaVuSans.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'DejaVu Sans';
+    src: url('fonts/DejaVuSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+body {
+    font-family: 'DejaVu Sans', 'Loma', sans-serif;
+}
+     
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    max-width: 400px;
+}
+
+video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.6);
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    background: white;
+    color: #ff4d6d;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    background: white;
+    color: hsl(212, 97%, 59%);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn.locked {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: float 3s linear forwards;
+}
+
+.cursor {
+    display: inline-block;
+    margin-left: 5px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-500px); opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="My Movie 1.mp4" type="video/mp4">
+</video>
+
+<div class="card">
+    <h1><span id="changing-text"></span><span class="cursor">|</span></h1>
+    <p>Happy Valentine's Day, na krub <b>Aoae</b> 💕</p>
+    <button autoplay onclick="createHeart()">เติมแฟน</button>
+    <a href="flower.html" class="btn" id="secretBtn" style="text-decoration: none;">อิอิ ปุ่มลับ</a>
+</div>
+
+<audio loop> <source src="music_jaonging.mp3" type="audio/mp3"> </audio>
+<audio id="typing-sound" src="typing.mp3" preload="auto"></audio>
+
+<script>
+document.querySelector("button").addEventListener("click", () => {
+    document.querySelector("audio").play();
+});
+
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.innerHTML = "❤️";
+    heart.classList.add("heart");
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = "80vh";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 3000);
+}
+
+const messages = [
+    "สวัสดีไอหมุอ้วน",
+    "อิอิ และนี่ก็คือของขวัญวันวาเลนไทน์จากเค้า",
+    "เค้าเขินมาก หวังว่าหมูอ้วนจะชอบนะ",
+    "สุขสันต์วันวาเลนไทน์นะครับโอ๋เอ๋ แฟนเป็นของขวัญที่ดีที่สุดสำหรับเค้าเลย",
+    "ที่รักดีกับเค้าเสมอมา เค้าดีใจมากเลยนะครับที่ได้พบคุณ 💕",
+    "ตั้งแต่วันแรกจนถึงวันนี้ เค้าไม่เคยเสียใจเลยที่ได้เลือกที่รักมาเป็นแฟน",
+    "คุณเซอร์ไพรส์เค้าในหลาย ๆ เรื่อง ทั้งเล็กและใหญ่จนเค้าอยากจะน้ำตาไหล",
+    "ไม่รู้จะบอกอะไรแต่อยากจะบอกว่าที่รักเป็นแฟนที่ดี ดีจริง ๆ",
+    "ขอบคุณนะครับที่ดีกับเค้าแบบนี้มาตลอด และขอบคุณที่ทำให้เค้าเป็นคนที่ดีขึ้นทุกวัน",
+    "เดะพิมพ์เยอะไปมันจะกร่อย อะ อะ อะ",
+    "เค้ามีเซอร์ไพรรรรรส์ให้อ้วนด้วยลอง กดปุ่มลับดูจิ 👇",
+    "หรือจะดูให้จบก็ได้นะ"
+];
+
+let messageIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const textElement = document.getElementById("changing-text");
+
+function typeEffect() {
+    const currentMessage = messages[messageIndex];
+
+    if (!isDeleting) {
+        textElement.innerHTML = currentMessage.substring(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === currentMessage.length) {
+            setTimeout(() => isDeleting = true, 2000);
+        }
+    } else {
+        textElement.innerHTML = currentMessage.substring(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+            isDeleting = false;
+            messageIndex = (messageIndex + 1) % messages.length;
+        }
+    }
+
+    setTimeout(typeEffect, isDeleting ? 50 : 80);
+}
+
+typeEffect();
+
+const secretBtn = document.getElementById("secretBtn");
+
+let countdown = 106;
+
+secretBtn.classList.add("locked");
+
+const timer = setInterval(() => {
+    countdown--;
+    secretBtn.textContent = `ปุ่มลับ`;
+
+    if (countdown <= 0) {
+        clearInterval(timer);
+        secretBtn.classList.remove("locked");
+        secretBtn.textContent = "กดได้แล้ว อิอิ";
+    }
+}, 1000);
+
+</script>
+
+</body>
+</html>
