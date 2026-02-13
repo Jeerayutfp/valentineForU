@@ -30,7 +30,6 @@ body{
     font-family: 'DejaVu Sans', 'Loma', sans-serif;
 }
 
-/* floating effect */
 .bouquet{
     animation:float 6s ease-in-out infinite;
 }
@@ -40,11 +39,9 @@ body{
     50%{ transform:translateY(-10px);}
 }
 
-/* stem + leaf */
 .stem{ stroke:#2f6b45; stroke-width:5;}
 .leaf{ fill:#3c8c63; }
 
-/* petals */
 .petal{
     fill:#fff0f6;
     filter: drop-shadow(0 0 18px rgba(255,182,193,.6));
@@ -52,7 +49,6 @@ body{
 .petal-inner{ fill:#ffd6ea; }
 .center{ fill:#ff99cc; }
 
-/* typing text */
 .message{
     position:absolute;
     bottom:40px;
@@ -70,7 +66,7 @@ body{
 }
 
 @keyframes typing{
-    to{ width:520px;}
+    to{ width:560px;}
 }
 
 @keyframes blink{
@@ -82,16 +78,13 @@ body{
 
 <svg class="bouquet" width="380" height="500" viewBox="0 0 380 500">
 
-    <!-- stems -->
     <line class="stem" x1="190" y1="450" x2="190" y2="260"/>
     <line class="stem" x1="160" y1="450" x2="140" y2="280"/>
     <line class="stem" x1="220" y1="450" x2="240" y2="280"/>
 
-    <!-- leaves -->
     <ellipse class="leaf" cx="165" cy="340" rx="35" ry="14" transform="rotate(-30 165 340)"/>
     <ellipse class="leaf" cx="215" cy="340" rx="35" ry="14" transform="rotate(30 215 340)"/>
 
-    <!-- center lily -->
     <g transform="translate(190,230)">
         <animateTransform attributeName="transform"
             type="scale"
@@ -110,7 +103,6 @@ body{
         <circle class="center" r="14"/>
     </g>
 
-    <!-- left lily -->
     <g transform="translate(140,260)">
         <animateTransform attributeName="transform"
             type="scale"
@@ -127,7 +119,6 @@ body{
         <circle class="center" r="12"/>
     </g>
 
-    <!-- right lily -->
     <g transform="translate(240,260)">
         <animateTransform attributeName="transform"
             type="scale"
